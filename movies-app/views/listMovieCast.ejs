@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <title>Cast on Movies</title>
+    </head>
+    <body">
+        <div class="container">
+            <h1><%= cast.fullname %> </h1>
+            <table class="table" style="width: fit-content;">
+                <thead class="table-dark">
+                <tr>
+                    <th>Movie</th>
+                    <th>Release Year</th>
+                    <th>Age when Movie Released</th>
+                    <th>Role</th>
+                </tr>
+                </thead>
+                <tbody style="background-color: #fce38a;">
+                <% cast.Movies.forEach(movie => {%> 
+                <tr class="table-success">
+                    <td><%= movie.name %></td>
+                    <td><%= movie.released_year %></td>
+                    <td><%= old(cast.birth_year, movie.released_year) %></td>
+                    <td><%= movie.MovieCast.role %></td>
+                    <%  });  %>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+    </html>

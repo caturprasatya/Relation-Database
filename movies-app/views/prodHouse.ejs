@@ -1,0 +1,25 @@
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Check All Production</title>
+</head>
+<body">
+    <h1>Production Houses</h1>
+    <table class="table" style="width: fit-content;">
+        <thead class="table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Headquarters</th>
+        </tr>
+        </thead>
+        <tbody style="background-color: #fce38a;">
+        <% for(let i = 0; i < prodHouse.length; i++) { %> 
+        <tr class="table-success">
+            <td><%= prodHouse[i].name_prodHouse %></td>
+            <td><%= prodHouse[i].headquarters %></td>
+            <% } %>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

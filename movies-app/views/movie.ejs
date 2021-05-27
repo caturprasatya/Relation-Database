@@ -1,0 +1,36 @@
+
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Check All Production</title>
+</head>
+<body">
+    <h1>Production Houses</h1>
+    <table class="table" style="width: fit-content;">
+        <thead class="table-dark">
+        <tr>
+            <th>Movie</th>
+            <th>Year</th>
+            <th>Genre</th>
+            <th>Production House</th>
+            <th>Option</th>
+        </tr>
+        </thead>
+        <tbody style="background-color: #fce38a;">
+        <% for(let i = 0; i < movies.length; i++) { %> 
+        <tr class="table-success">
+            <td><%= movies[i].name %></td>
+            <td><%= movies[i].released_year %></td>
+            <td><%= movies[i].genre %></td>
+            <% if(!movies[i].productionHouseId) { %>
+                <td>Unkown</td>
+            <% } else { %>
+                <td><%= movies[i].ProductionHouse.name_prodHouse %></td>
+            <% } %>
+            <td> <a href="/movie/edit/<%= movies[i].id %>"><button>Edit</button></a> | <a href="/movie/delete/<%= movies[i].id %>" onclick="return confirm('Are sure you want delete this?')"><button>Delete</button></a> | <a href="/movie/add/cast/<%= movies[i].id %>"><button>Add Cast</button></a></td>
+            <% } %>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
